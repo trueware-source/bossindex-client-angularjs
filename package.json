@@ -4,7 +4,7 @@
   "description": "BossIndex AngularJs client application",
   "main": "index.html",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
