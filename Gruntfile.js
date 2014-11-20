@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             files: [
-                './**/*.js'
+                './scripts/**/*.js'
             ],
             options: {
                 asi: false,
@@ -85,6 +85,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
 
     // Default task(s).
-    grunt.registerTask('default', ['jshint', 'karma']);
+    grunt.registerTask('default', ['jshint']);
 };
 
