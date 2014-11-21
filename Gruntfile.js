@@ -77,14 +77,27 @@ module.exports = function (grunt) {
                     './bower_components/**/*'
                 ]
             }
+        },
+        copy: {
+          release: {
+            files: [
+              // includes files within path
+              // {expand: true, src: ['css/*'], dest: 'dist/css/', filter: 'isFile'},
+              // {expand: true, src: ['img/*'], dest: 'dist/img/', filter: 'isFile'},
+              // {expand: true, src: ['partials/*'], dest: 'dist/partials/', filter: 'isFile'},
+              // {expand: true, src: ['scripts/*'], dest: 'dist/scripts/', filter: 'isFile'},
+              {expand: true, src: ['**/*','!**/node_modules/**','!**/bower_components/**'], dest: 'dist/'},
+            ],
+          },
         }
     });
 
     // Load plugins
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
-    // Default task(s).
     grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('package',['copy:release'])
 };
 

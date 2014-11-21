@@ -5,6 +5,7 @@ before_script:
 - npm i grunt-cli -g
 script:
 - npm test
+- grunt package
 deploy:
   provider: s3
   access_key_id: AKIAJGIQ2IXBC6P7MAUQ
