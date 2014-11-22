@@ -1,4 +1,5 @@
-﻿var happyApp = angular.module('happy', ['ngRoute', 'ngResource', 'dataServices', 'ui.bootstrap', 'googlechart', 'happyFilters', 'ngCookies']);
+﻿
+var happyApp = angular.module('happy', ['ngRoute', 'ngResource', 'dataServices', 'ui.bootstrap', 'googlechart', 'happyFilters', 'ngCookies']);
 happyApp.config(function($routeProvider) {
     $routeProvider
         .when('/indicator', {
