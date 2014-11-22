@@ -24,6 +24,7 @@
     "karma-jasmine": "^0.3.0"
   },
   "devDependencies": {
+    "grunt-aws-s3": "^0.9.4",
     "grunt-contrib-copy": "^0.7.0",
     "karma-phantomjs-launcher": "^0.1.4"
   }

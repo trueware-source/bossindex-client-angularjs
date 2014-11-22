@@ -5,14 +5,14 @@ before_script:
 - npm i grunt-cli -g
 script:
 - npm test
-- grunt package
-deploy:
-  provider: s3
-  access_key_id: AKIAJGIQ2IXBC6P7MAUQ
-  secret_access_key:
-    secure: T2/ltq6lHfmR6WCuMs92f9/lUCSfxtEMlCHF/64Ir8twXJPYl6r3+tpjxD9bpj5jJyFde5QvKEE95LEHbu4wX78yZCaHuwP/rvpjasQKDwnPjjgag/upx9zif0eE2xs3S91E34vaswIBj3OQNX+5Ma/RyMODgoyL5yvG1DkMvUA=
-  bucket: trueware-app
-  acl: public_read
-  on:
-    repo: trueware-source/bossindex-client-angularjs
-  local-dir: dist
+- grunt release
+# deploy:
+#   provider: s3
+#   access_key_id: AKIAJGIQ2IXBC6P7MAUQ
+#   secret_access_key:
+#     secure: T2/ltq6lHfmR6WCuMs92f9/lUCSfxtEMlCHF/64Ir8twXJPYl6r3+tpjxD9bpj5jJyFde5QvKEE95LEHbu4wX78yZCaHuwP/rvpjasQKDwnPjjgag/upx9zif0eE2xs3S91E34vaswIBj3OQNX+5Ma/RyMODgoyL5yvG1DkMvUA=
+#   bucket: trueware-app
+#   acl: public_read
+#   on:
+#     repo: trueware-source/bossindex-client-angularjs
+#   local-dir: dist

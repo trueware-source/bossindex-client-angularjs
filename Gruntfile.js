@@ -81,14 +81,23 @@ module.exports = function (grunt) {
         copy: {
           release: {
             files: [
-              // includes files within path
-              // {expand: true, src: ['css/*'], dest: 'dist/css/', filter: 'isFile'},
-              // {expand: true, src: ['img/*'], dest: 'dist/img/', filter: 'isFile'},
-              // {expand: true, src: ['partials/*'], dest: 'dist/partials/', filter: 'isFile'},
-              // {expand: true, src: ['scripts/*'], dest: 'dist/scripts/', filter: 'isFile'},
               {expand: true, src: ['**/*','!**/node_modules/**','!**/bower_components/**'], dest: 'dist/'},
             ],
           },
+        },
+        aws_s3: {
+          production: {
+            options:{
+              accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+              secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+              region: 'ap-southeast-2',
+              uploadConcurrency: 5, // 5 simultaneous uploads
+              bucket: 'trueware-app',
+            },
+            files: [
+              {expand: true, src: ['dist/**'], dest: 'dist/'},
+            ],
+          }
         }
     });
 
@@ -96,8 +105,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-aws-s3');
 
     grunt.registerTask('default', ['jshint']);
-    grunt.registerTask('package',['copy:release'])
+    grunt.registerTask('package', ['copy:release'])
+    grunt.registerTask('release', ['package','aws_s3:production'])
 };
 
