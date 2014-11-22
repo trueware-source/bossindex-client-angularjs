@@ -10,9 +10,6 @@ module.exports = function (grunt) {
     jshint: {
         files: [
             './scripts/**/*.js'
-        ],
-        ignores: [
-                './bower_components/**/*'
         ]
     },
     copy: {
